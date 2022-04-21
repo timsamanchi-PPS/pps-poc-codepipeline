@@ -33,8 +33,7 @@ resource "aws_iam_policy" "codepipeline-policy" {
     path = "/"
     policy = data.aws_iam_policy_document.policy-doc.json 
 }
-resource "aws_iam_role_policy_attachment" "test-attach" {
-
+resource "aws_iam_role_policy_attachment" "attach-codepipeline" {
     role = aws_iam_role.role-codepipeline.name
     policy_arn = aws_iam_policy.codepipeline-policy.arn
 }
