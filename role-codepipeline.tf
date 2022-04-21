@@ -1,5 +1,5 @@
-resource "aws_iam_role" "codepipeline-role" {
-  name = "codepipeline-role"
+resource "aws_iam_role" "role-codepipeline" {
+  name = "role-codepipeline"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -16,7 +16,7 @@ resource "aws_iam_role" "codepipeline-role" {
   permissions_boundary = "arn:aws:iam::714102873737:policy/pps.global.iamrp.ConanPermissionBoundaryPolicy"
 
   tags = {
-    Name = "codepipeline-role"
+    Name = "IAM role for codepipeline"
   }
 }
 data "aws_iam_policy_document" "policy-doc" {
@@ -41,6 +41,6 @@ resource "aws_iam_policy" "codepipeline-policy" {
 }
 resource "aws_iam_role_policy_attachment" "test-attach" {
 
-    role = aws_iam_role.codepipeline-role.name
+    role = aws_iam_role.role-codepipeline.name
     policy_arn = aws_iam_policy.codepipeline-policy.arn
 }
