@@ -1,2 +1,5 @@
 codepipeline-region = "eu-west-2"
 codepipeline-artifacts = "pps-poc-s3-codepipeline-artifacts"
+perms-boundary = "arn:aws:iam::714102873737:policy/pps.global.iamrp.ConanPermissionBoundaryPolicy"
+dockerHub-connector = "arn:aws:secretsmanager:eu-west-1:714102873737:secret:codebuild/dockerHub-zWlvUD"
+codeStar-connector = "arn:aws:codestar-connections:eu-west-1:714102873737:connection/d01a93a0-cfae-4e82-8dc9-0839eba6d342"
