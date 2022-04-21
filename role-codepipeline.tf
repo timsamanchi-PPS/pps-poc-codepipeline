@@ -22,15 +22,9 @@ resource "aws_iam_role" "role-codepipeline" {
 data "aws_iam_policy_document" "policy-doc" {
     statement {
         sid = "statement1"
-        actions = ["codestar-connections:UseConnection"]
+        actions = ["codestar-connections:UseConnection","s3:*","codebuild:*","cloudwatch:*"]
         resources = ["*"]
         effect = "Allow"
-    }
-    statement {
-        sid = "statement2"
-        actions = ["s3:*","codebuild:*","cloudwatch:*"]
-        resources = ["*"]
-        effect = "Allow"      
     }
 }
 resource "aws_iam_policy" "codepipeline-policy" {
